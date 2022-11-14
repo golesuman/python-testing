@@ -6,7 +6,7 @@ def func_sqrt(x):
     return math.sqrt(x)
 
 
-@pytest.mark.number
+@pytest.mark.skip
 def test_sqrt():
     x = 25
     value = func_sqrt(x)
@@ -14,12 +14,11 @@ def test_sqrt():
 
 
 
-
 def check_str(x):
     return True if type(x) == str else None
 
 
-@pytest.mark.strings
+@pytest.mark.skip
 def test_str_type():
     a = check_str('5')
     assert a == True
@@ -37,5 +36,10 @@ def test_divisible_by_3(input_value):
 
 def test_divisible_by_6(input_value):
     assert input_value % 6 == 0
+
+
+@pytest.mark.parametrize("num,output",[(1,11), (2, 22), (3, 35), (4, 44)])
+def test_multiplication11(num, output):
+    assert num*11 == output
 
 
